@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>CyberSites | Sites para comércios e pequenos negócios</title>
+<meta name="description" content="A CyberSites cria sites para comércios e pequenos negócios. Peça seu orçamento pelo WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* ===== CORES: troque aqui para mudar o visual do site todo ===== */
+:root{
+  --fundo:#070d1f;      /* azul-marinho bem escuro */
+  --painel:#0e1730;     /* fundo dos cartões */
+  --borda:#1f2c52;
+  --texto:#e8edfb;
+  --suave:#9fb0d6;
+  --ciano:#2fe0f2;      /* destaque 1 */
+  --roxo:#8b6bff;       /* destaque 2 */
+  color-scheme:dark;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--fundo:#070d1f}}
+:root[data-theme="dark"]{--fundo:#070d1f}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(80px + env(safe-area-inset-top,0px))}
+body{margin:0;background:var(--fundo);color:var(--texto);font-family:'DM Sans',system-ui,sans-serif;font-size:17px;line-height:1.65}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--fundo);z-index:30}
+h1,h2,h3{font-family:'Space Grotesk',system-ui,sans-serif;line-height:1.12;margin:0}
+h2{font-size:clamp(1.8rem,4vw,2.5rem);margin-bottom:12px}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--ciano);outline-offset:3px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 22px}
+section{padding:88px 0}
+.sub{color:var(--suave);max-width:56ch;margin:0 0 40px}
+.btn{display:inline-block;background:linear-gradient(90deg,var(--ciano),var(--roxo));color:#06101f;font-weight:700;text-decoration:none;padding:15px 28px;border-radius:999px;transition:transform .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn.insta{background:transparent;color:var(--texto);border:2px solid var(--roxo);padding:13px 26px}
+.acoes{display:flex;flex-wrap:wrap;gap:12px}
+.contato .acoes{justify-content:center}
+
+/* ===== MENU ===== */
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:40;background:rgba(7,13,31,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--borda)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:66px}
+.logo{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.3rem;text-decoration:none}
+.logo span{color:var(--ciano)}
+nav{display:flex;gap:2px;flex-wrap:wrap;justify-content:flex-end}
+nav a{text-decoration:none;color:var(--suave);font-weight:500;font-size:.95rem;padding:6px 12px;border-radius:999px}
+nav a:hover{color:var(--texto);background:var(--painel)}
+@media(max-width:760px){.nav{flex-direction:column;padding:8px 0;gap:2px}nav{justify-content:center}nav a{padding:3px 8px;font-size:.86rem}html{scroll-padding-top:calc(104px + env(safe-area-inset-top,0px))}}
+
+/* ===== BANNER ===== */
+.hero{padding:80px 0 96px}
+.hero .wrap{display:grid;grid-template-columns:1.15fr 1fr;gap:48px;align-items:center}
+.hero h1{font-size:clamp(2.3rem,6vw,3.9rem);margin-bottom:20px}
+.hero p{color:var(--suave);font-size:1.15rem;max-width:46ch;margin:0 0 30px}
+/* Janela de navegador desenhada em CSS (sem imagens) */
+.janela{background:var(--painel);border:1px solid var(--borda);border-radius:20px;overflow:hidden;box-shadow:0 0 60px rgba(139,107,255,.22)}
+.janela .barra{display:flex;gap:7px;padding:12px 16px;border-bottom:1px solid var(--borda)}
+.janela .barra i{width:11px;height:11px;border-radius:50%;background:var(--borda)}
+.janela .barra i:first-child{background:var(--ciano)}
+.janela .corpo{padding:22px;display:grid;gap:12px}
+.l{height:12px;border-radius:6px;background:var(--borda)}
+.l.t{height:22px;width:70%;background:linear-gradient(90deg,var(--ciano),var(--roxo))}
+.l.m{width:85%}.l.c{width:55%}
+.bl{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:6px}
+.bl div{height:68px;border-radius:14px;background:#14204a;border:1px solid var(--borda)}
+@media(max-width:760px){.hero .wrap{grid-template-columns:1fr}.hero{padding-top:48px}}
+
+/* ===== CARTÕES ===== */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+.card{background:var(--painel);border:1px solid var(--borda);border-radius:22px;padding:26px}
+.card .ico{font-size:1.9rem;display:block;margin-bottom:10px}
+.card h3{font-size:1.2rem;margin-bottom:6px}
+.card p{margin:0;color:var(--suave);font-size:.97rem}
+
+/* ===== COMO FUNCIONA (passos em sequência) ===== */
+.passos{counter-reset:p}
+.passos .card{position:relative;padding-top:58px}
+.passos .card::before{counter-increment:p;content:counter(p);position:absolute;top:20px;left:26px;width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,var(--ciano),var(--roxo));color:#06101f;font-weight:700;display:grid;place-items:center;font-family:'Space Grotesk',sans-serif}
+
+/* ===== PORTFÓLIO ===== */
+.port{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+@media(max-width:760px){.port{grid-template-columns:1fr}}
+.mini{border-radius:14px;overflow:hidden;border:1px solid var(--borda);margin-bottom:16px;background:#fff}
+.mini .topo{background:#0e8f86;height:78px;display:flex;align-items:center;justify-content:center;font-size:1.8rem}
+.mini .linhas{padding:14px;display:grid;gap:8px}
+.mini .linhas i{height:9px;border-radius:5px;background:#cfe7e3}
+.mini .linhas i:first-child{width:60%;background:#f27a1a}
+.mini.barb .topo{background:#1b1b1f;color:#d4a95a}
+.mini.barb .linhas i{background:#dcdce0}
+.mini.barb .linhas i:first-child{background:#d4a95a}
+.mini.rest .topo{background:#3a2418}
+.mini.rest .linhas i{background:#ead9cc}
+.mini.rest .linhas i:first-child{background:#c8472b}
+.ver{display:inline-block;margin-top:14px;color:var(--ciano);font-weight:700;text-underline-offset:3px}
+.vazio{display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;border-style:dashed;color:var(--suave)}
+
+/* ===== PREÇOS ===== */
+.preco{text-align:center;padding:44px 26px;background:linear-gradient(160deg,#10204d,#1a1450);border:1px solid var(--roxo);border-radius:28px;max-width:640px;margin:0 auto}
+.preco h3{font-size:clamp(1.6rem,4vw,2.3rem);margin-bottom:8px}
+.preco p{color:var(--suave);margin:0}
+.muda{list-style:none;padding:0;margin:28px auto 0;max-width:640px;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px;color:var(--suave);font-size:.97rem}
+.muda li::before{content:"+";color:var(--ciano);font-weight:700;margin-right:8px}
+.nota{text-align:center;color:var(--suave);font-size:.93rem;margin-top:24px}
+
+/* ===== FAQ ===== */
+details{background:var(--painel);border:1px solid var(--borda);border-radius:18px;padding:18px 22px;margin-bottom:12px;max-width:760px}
+summary{cursor:pointer;font-weight:700;font-family:'Space Grotesk',sans-serif;font-size:1.08rem}
+details p{color:var(--suave);margin:10px 0 0}
+
+/* ===== CONTATO ===== */
+.contato{text-align:center}
+.contato .sub{margin-inline:auto}
+.outro{margin:26px 0 0;color:var(--suave);font-size:.95rem}
+.outro a{color:var(--ciano);text-underline-offset:3px}
+footer{text-align:center;padding:28px 20px;border-top:1px solid var(--borda);color:var(--suave);font-size:.92rem}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}}
+</style>
+</head>
+<body>
+
+<!-- ===== 1. MENU FIXO ===== -->
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="#topo">Cyber<span>Sites</span></a>
+    <nav aria-label="Seções do site">
+      <a href="#servicos">Serviços</a>
+      <a href="#como">Como funciona</a>
+      <a href="#portfolio">Portfólio</a>
+      <a href="#precos">Preços</a>
+      <a href="#faq">Dúvidas</a>
+      <a href="#contato">Contato</a>
+    </nav>
+  </div>
+</header>
+
+<main id="topo">
+
+<!-- ===== 2. BANNER PRINCIPAL ===== -->
+<div class="hero">
+  <div class="wrap">
+    <div>
+      <h1>Seu negócio na internet, do jeito que ele merece</h1>
+      <p>Criamos sites simples, bonitos e rápidos para comércios e pequenos negócios aparecerem na internet.</p>
+      <!-- TROQUE o número em todos os links wa.me (formato: 55 + DDD + número) -->
+      <div class="acoes"><a class="btn" href="https://wa.me/5554991657364?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20CyberSites%20e%20gostaria%20de%20um%20or%C3%A7amento">Pedir orçamento no WhatsApp</a>
+      <a class="btn insta" href="https://www.instagram.com/cybersites_?vrfl=MW5sNG9xbDM1dWt2aw==" target="_blank" rel="noopener">Siga no Instagram @cybersites_</a></div>
+    </div>
+    <div class="janela" aria-hidden="true">
+      <div class="barra"><i></i><i></i><i></i></div>
+      <div class="corpo"><div class="l t"></div><div class="l m"></div><div class="l c"></div>
+        <div class="bl"><div></div><div></div><div></div><div></div></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 3. SERVIÇOS ===== -->
+<section id="servicos">
+  <div class="wrap">
+    <h2>O que a gente faz</h2>
+    <p class="sub">Do site mais simples ao que acompanha o crescimento do seu negócio.</p>
+    <div class="grid">
+      <div class="card"><span class="ico">🖥️</span><h3>Site de apresentação</h3><p>Uma página com seus serviços, fotos e contato, pronta para ser compartilhada.</p></div>
+      <div class="card"><span class="ico">💬</span><h3>Página para WhatsApp</h3><p>Um link para colocar na bio e levar o cliente direto para a conversa.</p></div>
+      <div class="card"><span class="ico">🏪</span><h3>Site para comércios</h3><p>Vitrine dos seus produtos, horários e endereço em um só lugar.</p></div>
+      <div class="card"><span class="ico">🛠️</span><h3>Ajustes e manutenção</h3><p>Mudou o preço ou o horário? A gente atualiza o site para você.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 4. COMO FUNCIONA ===== -->
+<section id="como">
+  <div class="wrap">
+    <h2>Como funciona</h2>
+    <p class="sub">Quatro passos, sem complicação.</p>
+    <div class="grid passos">
+      <div class="card"><h3>Conversa</h3><p>Você conta o que seu negócio faz e o que precisa no site.</p></div>
+      <div class="card"><h3>Proposta</h3><p>Enviamos o valor e o prazo combinados, tudo por escrito.</p></div>
+      <div class="card"><h3>Criação</h3><p>Montamos o site e você confere antes de ir ao ar.</p></div>
+      <div class="card"><h3>Entrega no ar</h3><p>Seu site é publicado e você recebe o link para divulgar.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 5. PORTFÓLIO (adicione mais cartões copiando o bloco "card") ===== -->
+<section id="portfolio">
+  <div class="wrap">
+    <h2>Portfólio</h2>
+    <p class="sub">Projetos de exemplo para você ver o estilo do nosso trabalho.</p>
+    <div class="port">
+      <div class="card">
+        <div class="mini barb" aria-hidden="true"><div class="topo">💈✂️</div><div class="linhas"><i></i><i></i><i></i></div></div>
+        <h3>Studio Barber (projeto de exemplo)</h3>
+        <p>Site para barbearia com serviços, galeria, avaliações e agendamento pelo WhatsApp.</p>
+        <a class="ver" href="https://ybrchive.github.io/projeto-barbearia/" target="_blank" rel="noopener">Ver site →</a>
+      </div>
+      <div class="card">
+        <div class="mini rest" aria-hidden="true"><div class="topo">🍔🍝</div><div class="linhas"><i></i><i></i><i></i></div></div>
+        <h3>Choppin Restaurante (proposta de demonstração)</h3>
+        <p>Site para restaurante com cardápio por categorias, galeria, avaliações, mapa e pedido pelo WhatsApp.</p>
+        <a class="ver" href="https://ybrchive.github.io/choppin-restaurante/" target="_blank" rel="noopener">Ver site →</a>
+      </div>
+      <div class="card">
+        <div class="mini" aria-hidden="true"><div class="topo">🐶🐱</div><div class="linhas"><i></i><i></i><i></i></div></div>
+        <h3>Amigo Fiel Pet Shop (projeto de exemplo)</h3>
+        <p>Site de uma página para pet shop, com serviços, preços, contato e botão de WhatsApp.</p>
+      </div>
+      <div class="card vazio"><h3>Seu projeto aqui</h3><p>Os próximos trabalhos entram nesta área.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 6. PREÇOS (troque os valores no cartão abaixo) ===== -->
+<section id="precos">
+  <div class="wrap">
+    <h2 style="text-align:center">Preços</h2>
+    <p class="sub" style="margin-inline:auto;text-align:center">Valor justo para quem está começando na internet.</p>
+    <div class="preco">
+      <h3>Sites de R$ 70 a R$ 250</h3>
+      <p>dependendo do trabalho</p>
+    </div>
+    <ul class="muda">
+      <li>Quantidade de seções</li>
+      <li>Textos e fotos prontos ou não</li>
+      <li>Ajustes extras</li>
+      <li>Prazo de entrega</li>
+    </ul>
+    <p class="nota">Domínio próprio (.com.br) é cobrado à parte. Peça um orçamento pelo WhatsApp.</p>
+  </div>
+</section>
+
+<!-- ===== 7. PERGUNTAS FREQUENTES ===== -->
+<section id="faq">
+  <div class="wrap">
+    <h2>Perguntas frequentes</h2>
+    <p class="sub">As dúvidas mais comuns antes de começar.</p>
+    <details><summary>Qual é o prazo?</summary><p>Um site simples costuma ficar pronto em poucos dias, depois que você envia os textos e as fotos.</p></details>
+    <details><summary>O que preciso enviar?</summary><p>O nome do negócio, o que você oferece, telefone, horário de funcionamento e, se tiver, fotos e logotipo.</p></details>
+    <details><summary>Como é o pagamento?</summary><p>Combinamos o valor antes de começar e o pagamento é feito por Pix. Tudo fica registrado na conversa.</p></details>
+    <details><summary>Vocês fazem alterações depois?</summary><p>Sim. Alterações pequenas podem estar incluídas no combinado, e os ajustes extras são combinados à parte.</p></details>
+  </div>
+</section>
+
+<!-- ===== 8. CONTATO ===== -->
+<section id="contato" class="contato">
+  <div class="wrap">
+    <h2>Vamos criar o seu site?</h2>
+    <p class="sub">Atendimento por WhatsApp</p>
+    <div class="acoes"><a class="btn" href="https://wa.me/5554991657364?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20CyberSites%20e%20gostaria%20de%20um%20or%C3%A7amento">Chamar no WhatsApp</a>
+      <a class="btn insta" href="https://www.instagram.com/cybersites_?vrfl=MW5sNG9xbDM1dWt2aw==" target="_blank" rel="noopener">Siga no Instagram @cybersites_</a></div>
+    <!-- TROQUE o e-mail abaixo se precisar (aparece em 2 lugares: no link e no texto) -->
+    <p class="outro">Prefere e-mail? Escreva para <a href="mailto:ybrchive@proton.me?subject=Or%C3%A7amento%20de%20site">ybrchive@proton.me</a></p>
+  </div>
+</section>
+
+</main>
+<footer>© <span id="ano">2026</span> CyberSites · <a href="https://www.instagram.com/cybersites_?vrfl=MW5sNG9xbDM1dWt2aw==" target="_blank" rel="noopener">@cybersites_</a></footer>
+<script>document.getElementById('ano').textContent=new Date().getFullYear();</script>
+</body>
+</html>
